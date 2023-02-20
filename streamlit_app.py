@@ -30,7 +30,7 @@ def paraphrase_quotes(quotes):
     response = openai.Completion.create(
         engine="text-davinci-003",
         prompt=f"Please paraphrase the following quotes in APA format:\n\n{quotes}\n",
-        max_tokens=524,
+        max_tokens=424,
         temperature=0.7,
         n=1,
         stop=None
