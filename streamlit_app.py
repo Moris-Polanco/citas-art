@@ -17,7 +17,7 @@ def generate_article(quotes):
         engine="text-davinci-003",
         prompt=prompt,
         temperature=0.7,
-        max_tokens=424,
+        max_tokens=324,
         top_p=1,
         frequency_penalty=0.3,
         presence_penalty=0.3
@@ -30,7 +30,7 @@ def paraphrase_quotes(quotes):
     response = openai.Completion.create(
         engine="text-davinci-003",
         prompt=f"Please paraphrase the following quotes in APA format:\n\n{quotes}\n",
-        max_tokens=424,
+        max_tokens=324,
         temperature=0.7,
         n=1,
         stop=None
