@@ -23,7 +23,7 @@ def generate_article(quotes):
 # Interfaz de usuario
 st.title("Generador de artículos con GPT-3")
 
-st.write("Ingrese citas para generar un artículo original:")
+st.write("Ingrese citas para generar un artículo original (máximo: 5 citas):")
 
 # Textarea para ingresar las citas
 quotes = st.text_area("Citas")
