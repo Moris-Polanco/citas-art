@@ -17,7 +17,7 @@ def generate_article(quotes):
         engine="text-davinci-003",
         prompt=prompt,
         temperature=0.5,
-        max_tokens=3924,
+        max_tokens=3524,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
