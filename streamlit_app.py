@@ -4,7 +4,7 @@ import re
 import os
 
 # Configurar la clave de API
-openai.api_key = "YOUR_API_KEY_HERE"
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # Función para generar un artículo a partir de citas
 def generate_article(quotes):
@@ -14,10 +14,10 @@ def generate_article(quotes):
     prompt = "\n".join(formatted_quotes)
     # Generar el artículo usando GPT-3
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        engine="text-davinci-003",
         prompt=prompt,
         temperature=0.5,
-        max_tokens=1024,
+        max_tokens=3924,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
