@@ -14,7 +14,7 @@ def generate_article(quotes):
     prompt = "\n".join([f"{paraphrase} ({source})" for source, paraphrase in paraphrase_quotes(formatted_quotes)])
     # Generar el artículo usando GPT-3
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        engine="text-davinci-003",
         prompt=prompt,
         temperature=0.5,
         max_tokens=1024,
@@ -28,7 +28,7 @@ def generate_article(quotes):
 def paraphrase_quotes(quotes):
     # Usar OpenAI GPT-3 para generar paráfrasis de las citas
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        engine="text-davinci-003",
         prompt=f"Please paraphrase the following quotes in APA format:\n\n{quotes}\n",
         max_tokens=1024,
         temperature=0.5,
