@@ -16,11 +16,11 @@ def generate_article(quotes):
     response = openai.Completion.create(
         engine="text-davinci-003",
         prompt=prompt,
-        temperature=0.5,
-        max_tokens=1024,
+        temperature=0.7,
+        max_tokens=924,
         top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
+        frequency_penalty=0.3,
+        presence_penalty=0.3
     )
     # Devolver el texto generado
     return response.choices[0].text.strip()
@@ -30,8 +30,8 @@ def paraphrase_quotes(quotes):
     response = openai.Completion.create(
         engine="text-davinci-003",
         prompt=f"Please paraphrase the following quotes in APA format:\n\n{quotes}\n",
-        max_tokens=1024,
-        temperature=0.5,
+        max_tokens=924,
+        temperature=0.7,
         n=1,
         stop=None
     )
