@@ -8,7 +8,7 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # Función para generar un artículo a partir de citas
 def generate_article(quotes):
-    prompt = f"Here are some quotes:\n\n{quotes}\n\nPlease write an article based on these quotes:\n"
+    prompt = f"Here are some quotes:\n\n{quotes}\n\nPlease write an article that includes at least some of these quotes:\n"
     response = openai.Completion.create(
         engine="text-davinci-003",
         prompt=prompt,
