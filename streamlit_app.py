@@ -8,19 +8,14 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # Función para generar un artículo a partir de citas
 def generate_article(quotes):
-    # Formatear las citas como una lista con viñetas
-    formatted_quotes = ["• " + re.sub(r'[\n\r]+', ' ', quote) for quote in quotes]
-    # Unir las citas en un solo texto
-    prompt = "\n".join(formatted_quotes)
-    # Generar el artículo usando GPT-3
+    prompt = f"Here are some quotes:\n\n{quotes}\n\nPlease write an article based on these quotes:\n"
     response = openai.Completion.create(
         engine="text-davinci-003",
         prompt=prompt,
-        temperature=0.5,
-        max_tokens=3524,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
+        max_tokens=3048,
+        n=1,
+        stop=None,
+        temperature=0.7,
     )
     # Devolver el texto generado
     return response.choices[0].text.strip()
@@ -37,7 +32,7 @@ if st.button("Generar artículo"):
     # Verificar que se ingresaron citas
     if len(quotes.strip()) > 0:
         # Generar el artículo y mostrarlo en la interfaz
-        article = generate_article(quotes.split('\n'))
+        article = generate_article(quotes)
         st.write("Artículo generado:")
         st.write(article)
     else:
